@@ -1,0 +1,66 @@
+@use "./functions.scss" as f;
+@import "./mixins.scss";
+
+.creditCardForm {
+  position: relative;
+  margin-inline: auto;
+  width: 87.2%;
+  max-width: f.px(381);
+
+  @include desktop {
+    top: f.px(275);
+  }
+
+  :nth-child(3),
+  :nth-child(4),
+  :nth-child(5) {
+    position: absolute;
+  }
+
+  :nth-child(3),
+  :nth-child(4) {
+    width: 22%;
+  }
+
+  :nth-child(3) {
+    left: 0;
+    label {
+      width: 200%;
+    }
+  }
+
+  :nth-child(4) {
+    left: f.px(80);
+    bottom: f.px(61);
+  }
+
+  :nth-child(5) {
+    right: 0;
+  }
+
+  :nth-child(6) {
+    margin-top: f.px(96);
+  }
+
+  &__submit {
+    width: 100%;
+  }
+
+  @include mobile {
+    :nth-child(4) {
+      left: f.px(96);
+    }
+  }
+
+  @include smallScreens {
+    :nth-child(3) {
+      label {
+        width: 210%;
+      }
+    }
+
+    :nth-child(4) {
+      bottom: f.px(55.5);
+    }
+  }
+}

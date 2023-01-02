@@ -1,0 +1,36 @@
+@use "./functions.scss" as f;
+@import "./mixins.scss";
+
+.creditCardLabel {
+  color: var(--clr-very-dark-violet);
+  letter-spacing: 2px;
+  line-height: f.px(15);
+  text-transform: uppercase;
+  margin-bottom: f.px(9);
+}
+
+.creditCardInput {
+  @include inputDefaults {
+    padding: f.px(11) 0 f.px(16) f.px(11);
+    margin-bottom: f.px(20);
+  }
+}
+
+.creditCardInput::placeholder {
+  color: var(--clr-very-dark-violet-op);
+  font-size: f.px(18);
+  font-weight: 500;
+}
+
+.creditCardInput:focus {
+  outline: none;
+  border: 1px solid var(--clr-very-dark-violet);
+}
+
+.error {
+  border: 1px solid var(--clr-error);
+}
+
+.error::placeholder {
+  color: var(--clr-error);
+}

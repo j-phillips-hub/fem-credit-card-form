@@ -1,0 +1,45 @@
+@use "./functions.scss" as f;
+
+$smallScreens: 375px;
+$mobile: 400px;
+$desktop: 1280px;
+
+@mixin smallScreens {
+  @media (max-width: $smallScreens) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin backgroundImg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  @content;
+}
+
+@mixin inputDefaults {
+  background-color: transparent;
+  width: 100%;
+  border: 1px solid var(--clr-light-greyish-violet);
+  border-radius: f.px(8);
+  @content;
+}
+
+@mixin buttonDefaults {
+  background-color: transparent;
+  border: 1px solid var(--clr-dark-greyish-violet);
+  border-radius: f.px(8);
+  cursor: pointer;
+  @content;
+}

@@ -1,0 +1,15 @@
+@use "./functions.scss" as f;
+@import "./mixins.scss";
+
+.btnLarge {
+  @include buttonDefaults {
+    background-color: var(--clr-very-dark-violet);
+    color: var(--clr-white);
+    font-size: f.px(18);
+    padding: f.px(15) f.px(130);
+  }
+
+  @include smallScreens {
+    font-size: f.px(14);
+  }
+}

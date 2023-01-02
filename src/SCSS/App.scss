@@ -1,0 +1,211 @@
+@use "./functions.scss" as f;
+@import "./mixins.scss";
+
+:root {
+  // Primary Colors
+  // (active input border)
+  --clr-Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  // (input errors)
+  --clr-error: hsl(0, 100%, 66%);
+
+  // Neutral Colors
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-greyish-violet: hsl(278, 3%, 87%);
+  --clr-dark-greyish-violet: hsl(278, 6%, 55%);
+  --clr-very-dark-violet: hsl(278, 68%, 11%);
+  --clr-very-dark-violet-op: hsla(278, 68%, 11%, 0.25);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Cursors only change to hint non-obvious interfaces
+// Words break to prevent overflow
+html {
+  cursor: default;
+  word-break: break-all;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: f.px(12);
+  font-weight: 500;
+}
+
+// Placeholders appear visually consistent in Internet Explorer
+:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+small {
+  color: var(--clr-white);
+}
+
+form {
+  vertical-align: baseline;
+  background: transparent;
+}
+
+// Assets use a comfortable measure in all browsers
+input,
+img {
+  height: auto;
+}
+
+input,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  display: block;
+}
+
+// Single taps are dispatched immediately on clickable elements
+input,
+button,
+label {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+main {
+  @include desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero {
+  width: 100vw;
+  height: f.px(240);
+  margin-bottom: f.px(91);
+  padding: f.px(32) f.px(16) 0 f.px(16);
+
+  @include backgroundImg {
+    background-image: url("../images/bg-main-mobile.png");
+  }
+
+  @include desktop {
+    width: f.px(483);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .heroContainer {
+    position: relative;
+    width: f.px(343);
+    height: f.px(251);
+    margin-inline: auto;
+
+    @include desktop {
+      width: 541px;
+      height: 527px;
+      margin: 187px 0 0 164px;
+    }
+
+    @include smallScreens {
+      right: f.px(15);
+    }
+
+    .cardImg {
+      width: f.px(286);
+    }
+
+    .cardImg--back {
+      margin-left: f.px(57);
+
+      @include desktop {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        width: 447px;
+      }
+    }
+
+    .cvc {
+      font-size: f.px(9);
+      letter-spacing: 1.29px;
+      position: absolute;
+      top: f.px(72);
+      right: f.px(38);
+
+      @include desktop {
+        top: f.px(394);
+        right: f.px(55);
+        font-size: f.px(14);
+        letter-spacing: 2px;
+      }
+    }
+
+    .cardImg--front {
+      width: f.px(286);
+      height: f.px(157);
+      padding: f.px(17.6) f.px(27) f.px(19.6) f.px(19);
+      transform: translate(f.px(40), f.px(-72));
+
+      @include backgroundImg {
+        background-image: url("../images/bg-card-front.png");
+      }
+
+      @include desktop {
+        width: 447px;
+        height: 245px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: translate(0, 0);
+        padding: f.px(28) f.px(43) f.px(26.5) f.px(32);
+      }
+
+      .cardInfo {
+        &__logo {
+          width: f.px(54);
+          height: f.px(30);
+          margin-bottom: f.px(37);
+
+          @include desktop {
+            width: f.px(84);
+            height: f.px(47);
+            margin-bottom: f.px(64);
+          }
+        }
+
+        &__num {
+          font-size: f.px(18);
+          letter-spacing: 2.2px;
+          margin-bottom: f.px(17);
+          line-height: 100%;
+
+          @include desktop {
+            font-size: f.px(28);
+            letter-spacing: 3.42px;
+            margin-bottom: f.px(25.5);
+          }
+        }
+
+        & :nth-child(3) {
+          font-size: f.px(9);
+          letter-spacing: 1.29px;
+          line-height: 100%;
+          text-transform: uppercase;
+          display: flex;
+          justify-content: space-between;
+
+          @include desktop {
+            font-size: f.px(14);
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.displayNone {
+  display: none;
+}
