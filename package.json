@@ -2,6 +2,7 @@
   "name": "fem-credit-card-form",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://j-phillips-hub.github.io/fem-credit-card-form/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
